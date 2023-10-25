@@ -7,7 +7,12 @@ class ListSalesService {
 
         const salesRepositories = getCustomRepository(SalesRepositories);
 
-        const sales = salesRepositories.find();
+        const sales = salesRepositories.find({
+            relations: [
+                'productId',
+                'userId'
+            ]
+        });
 
         return sales;
     }

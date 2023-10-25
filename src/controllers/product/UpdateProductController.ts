@@ -12,12 +12,12 @@ class UpdateProductController{
         const { name, description, price, url, categoryName } = request.body;
 
         const product = await updateProductService.execute({
-            id: id,
-            name: name,
-            description: description,
-            price: price, 
-            url: url, 
-            categoryName: categoryName
+            id,
+            name,
+            description,
+            price, 
+            url, 
+            categoryName
         });
 
         return response.json(product);

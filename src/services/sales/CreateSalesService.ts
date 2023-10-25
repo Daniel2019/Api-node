@@ -8,7 +8,7 @@ interface ICreateSalesRequest {
     userId: User;
     total: number;
     desc: string;
-    obs: string
+    obs: string;
 }
 
 class CreateSalesService{

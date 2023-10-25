@@ -11,12 +11,12 @@ class UpdateSalesController{
         const { productId, userId, total, desc, obs } = request.body;
 
         const sales = updateSalesService.execute({
-            id: id,
-            productId: productId,
-            userId: userId,
-            total: total,
-            desc: desc,
-            obs: obs
+            id,
+            productId,
+            userId,
+            total,
+            desc,
+            obs
         });
 
         return response.json(sales);

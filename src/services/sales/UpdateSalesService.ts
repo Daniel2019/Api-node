@@ -4,12 +4,12 @@ import { User } from "../../entities/User";
 import { SalesRepositories } from "../../repositories/SalesRepositories";
 
 interface IUpdateSalesRequest {
-    id: string,
+    id: string;
     productId: Product[]; 
     userId: User;
     total: number;
     desc: string;
-    obs: string
+    obs: string;
 }
 
 class UpdateSalesService{
@@ -59,7 +59,7 @@ class UpdateSalesService{
         salesAlreadyExist.obs = obs;
         salesAlreadyExist.update_date = new Date();
 
-        return await salesRepositories.update(id, salesAlreadyExist);
+        return await salesRepositories.save(salesAlreadyExist);
 
     }
 }

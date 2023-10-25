@@ -6,7 +6,11 @@ class ListDeliveriesService {
     async execute(){
         const deliveriesRepositories = getCustomRepository(DeliveriesRepositories);
 
-        const deliveries = deliveriesRepositories.find();
+        const deliveries = deliveriesRepositories.find({
+            relations: [
+                'idSales'
+            ]
+        });
         
         return deliveries;
     }
