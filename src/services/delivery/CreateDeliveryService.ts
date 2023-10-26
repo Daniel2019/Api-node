@@ -3,24 +3,24 @@ import { DeliveriesRepositories } from "../../repositories/DeliveriesRepositorie
 import { Sales } from "../../entities/Sales";
 
 interface ICreateDeliveryRequest {
-    idSales : Sales,
-    data_entrega : string,
-    obs: string
+    idSales : Sales;
+    data_entrega : string;
+    obs: string;
 }
 
 class CreateDeliveryService {
 
     async execute({idSales, data_entrega, obs}:ICreateDeliveryRequest){
 
-        if(idSales){
+        if(!idSales){
             throw new Error("A venda não pode ser vazia!");
         }
 
-        if(data_entrega){
+        if(!data_entrega){
             throw new Error("A data de entrega não pode ser vazia!");
         }
 
-        if(obs){
+        if(!obs){
             throw new Error("A observação não pode ser vazia!");
         }
 

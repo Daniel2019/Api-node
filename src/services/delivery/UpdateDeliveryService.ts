@@ -3,29 +3,29 @@ import { DeliveriesRepositories } from "../../repositories/DeliveriesRepositorie
 import { Sales } from "../../entities/Sales";
 
 interface IUpdateDeliveryRequest {
-    id : string,
-    idSales : Sales,
-    data_entrega : string,
-    obs: string
+    id : string;
+    idSales : Sales;
+    data_entrega : string;
+    obs: string;
 }
 
 class UpdateDeliveryService {
 
     async execute({id, idSales, data_entrega, obs} : IUpdateDeliveryRequest){
 
-        if(id){
+        if(!id){
             throw new Error("O id não pode ser vazio!");
         }
 
-        if(data_entrega){
+        if(!data_entrega){
             throw new Error("A data de entrega não pode ser vazia!");
         }
 
-        if(obs){
+        if(!obs){
             throw new Error("A observação não pode ser vazia!");
         }
 
-        if(idSales){
+        if(!idSales){
             throw new Error("A venda não pode ser vazia!");
         }
 

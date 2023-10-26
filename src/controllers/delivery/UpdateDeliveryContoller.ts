@@ -8,13 +8,14 @@ class UpdateDeliveryContoller {
         const { idSales, data_entrega, obs } = request.body;
 
         const updateDeliveryService = new UpdateDeliveryService();
-        const delivery = updateDeliveryService.execute({
+        const delivery = await updateDeliveryService.execute({
             id,
             idSales,
             data_entrega,
             obs
         });
-        return delivery;
+
+        return response.json(delivery);
     }
 }
 

@@ -4,14 +4,17 @@ import { CreateDeliveryService } from "../../services/delivery/CreateDeliverySer
 class CreateDeliveryController {
 
     async handle(request : Request, response : Response){
+
         const { idSales, data_entrega, obs } = request.body;
+        
         const createDeliveryService = new CreateDeliveryService();
         const delivery = await createDeliveryService.execute({
             idSales,
             data_entrega,
             obs
         });
-        return delivery;
+        
+        return response.json(delivery);
     }
 }
 
